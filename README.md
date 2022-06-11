@@ -91,7 +91,7 @@ If we focus on just the room meta data this is what our file looks like after ge
 
  Drawing a grid of all the rooms we find we have this 2D world map:
  
- * ![World Map with names](pics/world_map_names.png)
+ * ![World Map with names](pics/world_map_room_names.png)
 
  We won't immediately use this but it will give us a sense of how the rooms should fit together when we go to "stitch" them together to make our native 1:1 world map.
 
