@@ -1,0 +1,582 @@
+<room x="-3" y="0" title="You Have to Start the Game">
+	<!-- entity template="spore" x="160" y="96" dx="0" dy="0" />
+	<!-- entity template="mini_spawner" x="160" y="96" dx="1" dy="0" />
+	<!-- entity template="mini_spawner" x="160" y="96" dx="-1" dy="0" />
+	<!-- entity template="crab" x="240" y="156" dx="1" dy="0" />
+</room>
+
+<room x="-2" y="0" title="KISS Principle">
+</room>
+
+<room x="-1" y="0" title="Snake, It's a Snake">
+	<entity template="snake" x="192" y="108" dx="-1" dy="0" />
+</room>
+
+<room x="0" y="0" title="Treasure Hunt">
+</room>
+
+<room x="1" y="0" title="Danger">
+	<entity template="crumbler" x="104" y="156" />
+	<entity template="crumbler" x="136" y="156" />
+	<entity template="crumbler" x="168" y="156" />
+	<entity template="bat" x="168" y="148" dx="-1" dy="0" />
+</room>
+
+<room x="0" y="1" title="Abstract Bridge">
+</room>
+
+<room x="0" y="2" title="Which Path Will I Take?">
+</room>
+
+<room x="-2" y="2" title="Pit of Spikes">
+	<entity template="crumbler" x="104" y="156" speed="48" dx="0" dy="-1" />
+</room>
+
+<room x="-5" y="3" title="Obvious Movie Quote">
+	<entity template="snake" x="100" y="28" dx="-1" dy="0" />
+	<entity template="snake" x="140" y="52" dx="1" dy="0" />
+	<entity template="snake" x="180" y="76" dx="-1" dy="0" />
+	<entity template="snake" x="220" y="100" dx="1" dy="0" />
+</room>
+
+<room x="-4" y="3" title="Don't Be Hasty">
+	<entity template="snake" x="160" y="108" dx="1" dy="0" />
+	<entity template="bat" x="192" y="76" dx="1" dy="0" />
+</room>
+
+<room x="-3" y="2" title="Never Could See Any Other Way">
+	<remap dx="-1" dy="0" x="-3" y="2" />
+	<remap dx="1" dy="0" x="-3" y="2" />
+	<entity template="meebs" x="200" y="116" speed="128" dx="1" dy="0" />
+	<entity template="meebs" x="200" y="84" speed="128" dx="-1" dy="0" />
+	<entity template="meebs" x="200" y="52" speed="128" dx="1" dy="0" />
+	<entity template="crumbler" x="284" y="116" />
+	<entity template="crumbler" x="284" y="84" />
+	<entity template="crumbler" x="284" y="52" />
+	<entity template="meebs" x="132" y="172" speed="96" dx="0" dy="-1" />
+	<entity template="meebs" x="164" y="172" speed="96" dx="0" dy="-1" />
+	<entity template="meebs" x="196" y="172" speed="96" dx="0" dy="-1" />
+</room>
+
+<room x="-3" y="3" title="You Definitely Shouldn't Go Left">
+	<remap dx="-1" dy="0" x="-3" y="2" />
+	<remap dx="0" dy="1" x="-3" y="3" />
+	<entity template="crumbler" x="24" y="60" />
+	<entity template="crumbler" x="32" y="124" />
+	<entity template="lift" x="160" y="96" speed="48" dx="0" dy="-1"/>
+	<entity template="lift" x="240" y="68" speed="80" dx="1" dy="0"/>
+	<entity template="bat" x="240" y="36" speed="48" dx="-1" dy="0"/>
+</room>
+
+<room x="7" y="2" title="Worth It?">
+	<entity template="crumbler" x="32" y="52" />
+	<entity template="pusher" x="140" y="28" speed="80" dx="-1" dy="0" />
+</room>
+
+<room x="8" y="2" title="Not Worth It!">
+	<entity template="gate" x="32" y="32"
+		destwx="6" destwy="1" destrx="16" destry="160" />
+</room>
+
+<room x="-6" y="3" title="Pit Stop">
+	<entity template="crumbler" x="72" y="76" />
+	<entity template="lift" x="72" y="132" speed="96" dx="1" dy="0" />
+</room>
+
+<room x="4" y="6" title="Wellspring">
+	<entity template="lift" x="256" y="148" speed="96" dx="1" dy="0" />
+</room>
+
+<room x="-2" y="3" title="Tower of Sorrows">
+	<remap dx="0" dy="-1" x="-2" y="4" />
+	<remap dx="0" dy="1" x="-2" y="4" />
+	<entity template="bat" x="192" y="44" speed="128" dx="-1" dy="0"/>
+	<entity template="crumbler" x="256" y="76" />
+</room>
+
+<room x="-2" y="4" title="Tower of Regrets">
+	<remap dx="0" dy="-1" x="-2" y="3" />
+	<remap dx="0" dy="1" x="-2" y="3" />
+	<entity template="bat" x="128" y="44" speed="128" dx="1" dy="0"/>
+</room>
+
+<room x="-3" y="4" title="Rawr!">
+	<entity template="gate" x="80" y="104"
+		destwx="-3" destwy="4" destrx="176" destry="104" />
+	<entity template="gate" x="160" y="104"
+		destwx="-3" destwy="4" destrx="64" destry="104" />
+</room>
+
+
+
+<room x="-8" y="2" toptitle="Cerulean Aura" title="- Activates Blue Ghost Blocks -">
+	<entity template="orb_blue" x="160" y="120" />
+</room>
+
+<room x="5" y="6" toptitle="Crimson Aura" title="- Activates Red Ghost Blocks -">
+	<entity template="orb_red" x="160" y="120" />
+</room>
+
+<room x="8" y="1" toptitle="Spider Gloves" title="- Cling to Walls and Leap Off -">
+	<entity template="orb_gloves" x="160" y="120" />
+</room>
+
+<room x="-3" y="5" toptitle="Springheel Boots" title="- Jump Again in Midair -">
+	<entity template="orb_boots" x="160" y="120" />
+</room>
+
+
+
+<room x="-2" y="-2" title="Point of No Return">
+	<entity template="gate" x="24" y="160"
+		destwx="-1" destwy="-3" destrx="200" destry="104" />
+</room>
+
+<room x="-1" y="-3" title="Speak Now...">
+	<entity template="gate" x="296" y="144"
+		destwx="0" destwy="-3" destrx="24" destry="152" />
+		
+	<entity template="gate" x="24" y="96"
+		destwx="-1" destwy="-4" destrx="36" destry="104" />
+</room>
+
+<room x="-1" y="-2" title="Open Sesame">
+	<entity template="gate" x="296" y="144"
+		destwx="0" destwy="-2" destrx="24" destry="152" />
+</room>
+
+<room x="0" y="-3" title="Consolation Prize">
+	<entity template="orb_lose" x="160" y="136" />
+</room>
+
+<room x="0" y="-2" title="Eponymous">
+	<entity template="orb_win" x="160" y="136" />
+</room>
+
+
+
+<room x="-9" y="2" title="Hollow King">
+	<entity template="crumbler" x="40" y="124" speed="48" dx="0" dy="-1"/>
+	<entity template="crumbler" x="112" y="132" />
+	<entity template="lift" x="160" y="108" speed="48" dx="1" dy="0" />
+	<entity template="plasm_spawner" rate="0.7" x="52" y="36" dx="1" dy="0.075" stagger="0.0" bounces="0" />
+	<entity template="plasm_spawner" rate="0.7" x="52" y="36" dx="1" dy="-0.05" stagger="0.25" bounces="0" />
+	<entity template="plasm_spawner" rate="0.7" x="52" y="36" dx="1" dy="-0.175" stagger="0.5" bounces="0" />
+	<entity template="plasm_spawner" rate="0.7" x="52" y="36" dx="1" dy="-0.3" stagger="0.75" bounces="0" />
+</room>
+
+<room x="7" y="1" title="Hollow King Transformed">
+	<entity template="plasm_spawner" rate="1.2" x="268" y="36" dx="-0.3" dy="-1" stagger="0.0" bounces="4" speed="96" />
+	<entity template="plasm_spawner" rate="1.2" x="268" y="36" dx="-0.4" dy="-1" stagger="0.25" bounces="4" speed="96" />
+	<entity template="plasm_spawner" rate="1.2" x="268" y="36" dx="-0.5" dy="-1" stagger="0.5" bounces="4" speed="96" />
+	<entity template="plasm_spawner" rate="1.2" x="268" y="36" dx="-0.6" dy="-1" stagger="0.75" bounces="4" speed="96" />
+</room>
+
+<room x="6" y="6" title="Dire Crab">
+	<entity template="crab" x="64" y="164" dx="1" dy="0" />
+	<entity template="crumbler" x="64" y="148" speed="96" dx="1" dy="0" />
+	<entity template="plasm_spawner" rate="0.7" x="160" y="172" dx="-0.3" dy="-1.0" stagger="0.0" bounces="0" speed="136" />
+	<entity template="plasm_spawner" rate="0.7" x="160" y="172" dx="0.135" dy="-1.0" stagger="0.25" bounces="0" speed="136" />
+	<entity template="plasm_spawner" rate="0.7" x="160" y="172" dx="-0.135" dy="-1.0" stagger="0.5" bounces="0" speed="136" />
+	<entity template="plasm_spawner" rate="0.7" x="160" y="172" dx="0.3" dy="-1.0" stagger="0.75" bounces="0" speed="136" />
+</room>
+
+<room x="-4" y="5" title="Green Man">
+	<entity template="spider" x="144" y="32" dx="0" dy="1" />
+	<entity template="plasm_spawner" rate="0.5" x="216" y="52" dx="-1.0" dy="0.0" stagger="0.0" bounces="0" speed="96" />
+	<entity template="plasm_spawner" rate="0.5" x="216" y="52" dx="-0.6" dy="0.3" stagger="0.25" bounces="0" speed="96" />
+	<entity template="plasm_spawner" rate="0.5" x="216" y="52" dx="-0.35" dy="0.65" stagger="0.5" bounces="0" speed="96" />
+	<entity template="plasm_spawner" rate="0.5" x="216" y="52" dx="0.1" dy="1.0" stagger="0.75" bounces="0" speed="96" />
+</room>
+
+
+
+<room x="2" y="0" title="Leap of Faith">
+</room>
+
+<room x="2" y="1" title="Stick the Landing">
+	<entity template="gate" x="88" y="104"
+		destwx="6" destwy="4" destrx="24" destry="24" />
+</room>
+
+<room x="6" y="4" title="Rough Landing">
+</room>
+
+<room x="7" y="3" title="Secret Cat Level">
+	<entity template="gate" x="160" y="32"
+		destwx="0" destwy="2" destrx="160" destry="112" />
+</room>
+
+<room x="1" y="4" title="Circular Logic">
+	<remap dx="-1" dy="0" x="1" y="4" />
+	<remap dx="0" dy="1" x="0" y="4" />
+	<entity template="plasm_spawner" rate="0.8" x="40" y="20" stagger="0.0" dx="1" dy="0.0" bounces="8" />
+	<entity template="plasm_spawner" rate="0.8" x="280" y="20" stagger="0.5" dx="-1" dy="0.0" bounces="8" />
+</room>
+
+<room x="0" y="4" title="Euclid Shrugged">
+	<remap dx="0" dy="-1" x="1" y="4" />
+	<entity template="crumbler" x="184" y="84" />
+	<entity template="crumbler" x="184" y="92" />
+	<entity template="crumbler" x="184" y="140" />
+	<entity template="lift" x="160" y="156" speed="48" dx="1" dy="0" />
+	<entity template="plasm_spawner" rate="0.8" x="280" y="20" stagger="0.0" dx="-1" dy="0.0" bounces="4" />
+</room>
+
+<room x="-1" y="4" title="Falling Into a Greener Life">
+	<remap dx="1" dy="0" x="-1" y="4" />
+</room>
+
+<room x="0" y="3" title="Bat Cave">
+	<entity template="bat" x="64" y="76" dx="1" dy="0" />
+</room>
+
+<room x="-7" y="3" title="I Wonder Where This Goes">
+	<entity template="gate" x="120" y="160"
+		destwx="-9" destwy="4" destrx="304" destry="64" />
+</room>
+
+<room x="-5" y="6" title="Forgotten Tunnels">
+	<entity template="meebs" x="68" y="60" dx="0" dy="1" />
+	<entity template="meebs" x="76" y="76" dx="0" dy="1" />
+	<entity template="meebs" x="84" y="92" dx="0" dy="1" />
+</room>
+
+<room x="-3" y="6" title="The Arbitrarium" symbolrank="2">
+	<entity template="spider" x="200" y="124" dx="0" dy="1" />
+</room>
+
+<room x="-2" y="5" title="Back to the Surface">
+	<entity template="gate" x="288" y="88"
+		destwx="0" destwy="2" destrx="160" destry="112" />
+</room>
+
+<room x="-7" y="5" title="Et in Aether ego" wordrank="1">
+</room>
+
+<room x="-4" y="6" title="Descent">
+	<entity template="lift" x="64" y="68" speed="48" dx="0" dy="1" />
+	<entity template="crumbler" x="256" y="100" speed="48" dx="0" dy="1" />
+	<entity template="crumbler" x="160" y="100" speed="48" dx="0" dy="1" />
+	<entity template="crumbler" x="192" y="68" speed="48" dx="1" dy="0" />
+</room>
+
+<room x="-5" y="-1" title="Hold On Tight and Don't Look Down">
+	<entity template="pusher" x="60" y="128" speed="192" dx="1" dy="0" />
+</room>
+
+<room x="-4" y="-1" title="The Coin and the Courage">
+	<entity template="crumbler" x="160" y="76" />
+</room>
+
+<room x="-5" y="-2" title="Before the Crash">
+</room>
+
+<room x="-5" y="-3" title="A Sickly Silver Moon">
+</room>
+
+<room x="-4" y="-3" title="This Is Where We Used to Live">
+</room>
+
+<room x="-3" y="-3" title="Catharsis in Catastrophe">
+</room>
+
+<room x="-3" y="-2" title="Hardcore Prawn">
+	<entity template="crumbler" x="296" y="52" />
+	<entity template="plasm_spawner" rate="1.8" x="68" y="68" stagger="0.0" dx="1" dy="-0.05" bounces="2" />
+	<entity template="plasm_spawner" rate="1.8" x="68" y="116" stagger="0.25" dx="1" dy="-0.05" bounces="2" />
+	<entity template="plasm_spawner" rate="1.8" x="212" y="68" stagger="0.5" dx="-1" dy="-0.05" bounces="2" />
+	<entity template="plasm_spawner" rate="1.8" x="212" y="116" stagger="0.75" dx="-1" dy="-0.05" bounces="2" />
+</room>
+
+<room x="-9" y="4" title="Welcome to the Underground">
+</room>
+
+<room x="5" y="5" title="Don't Get Snippy With Me">
+	<entity template="crab" x="120" y="164" dx="1" dy="0" />
+	<entity template="crab" x="200" y="164" dx="-1" dy="0" />
+</room>
+
+<room x="3" y="6" title="yeah but why u jelly tho">
+	<entity template="jelly" x="240" y="96" dx="0" dy="1" />
+	<entity template="jelly" x="120" y="96" dx="0" dy="-1" />
+</room>
+
+<room x="3" y="5" title="Abandoned Alcove">
+	<entity template="gate" x="40" y="72"
+		destwx="0" destwy="2" destrx="160" destry="112" />
+</room>
+
+<room x="-10" y="3" title="Nice of You to Drop In">
+	<entity template="crumbler" x="40" y="156" />
+	<entity template="crumbler" x="96" y="132" />
+	<entity template="crumbler" x="152" y="108" />
+	<entity template="crumbler" x="208" y="84" />
+	<entity template="crumbler" x="264" y="60" />
+</room>
+
+<room x="-9" y="3" title="Foot of the Throne">
+	<entity template="crumbler" x="152" y="100" />
+	<entity template="crumbler" x="96" y="76" />
+</room>
+
+<room x="-8" y="3" title="Mind the Gap">
+	<entity template="crumbler" x="160" y="148" />
+	<entity template="bat" x="160" y="28" dx="1" dy="0" />
+</room>
+
+<room x="3" y="4" title="Fish Out of Water">
+	<entity template="jelly" x="64" y="136" dx="0" dy="-1" />
+	<entity template="jelly" x="128" y="128" dx="0" dy="-1" />
+	<entity template="jelly" x="192" y="112" dx="0" dy="-1" />
+	<entity template="jelly" x="256" y="120" dx="0" dy="-1" />
+</room>
+
+<room x="-5" y="0" title="Hydra Is Myth">
+	<entity template="crumbler" x="32" y="68" />
+	<entity template="crumbler" x="64" y="100" />
+	<entity template="crumbler" x="96" y="132" />
+</room>
+
+<room x="-1" y="2" title="Subterranea">
+	<entity template="crumbler" x="224" y="60" />
+</room>
+
+<room x="6" y="1" title="Great Hall">
+</room>
+
+<room x="2" y="4" title="Prawn Shot First">
+	<entity template="plasm_spawner" rate="0.6" x="84" y="156" dx="1" dy="-0.3" />
+</room>
+
+<room x="5" y="3" title="Ghosts">
+</room>
+
+<room x="-6" y="4" title="Like Ivy, Twisting">
+	<entity template="gate" x="192" y="32"
+		destwx="-9" destwy="4" destrx="304" destry="64" />
+</room>
+
+<room x="-8" y="6" title="The Crab Cake Is a Lie">
+	<entity template="crab" x="128" y="148" dx="1" dy="0" />
+</room>
+
+<room x="8" y="0" title="Brazen Machines">
+	<entity template="pusher" x="60" y="56" speed="48" dx="1" dy="0" />
+	<entity template="lift" x="144" y="60" speed="48" dx="0" dy="1" />
+</room>
+
+<room x="7" y="0" title="The Floor Is Lava">
+	<entity template="pusher" x="60" y="112" speed="96" dx="1" dy="0" />
+</room>
+
+<room x="7" y="-1" title="An Even 0x80">
+</room>
+
+<room x="-10" y="2" title="Slippery Slope" />
+
+<room x="-9" y="5" title="Long Way Down" />
+
+<room x="-9" y="6" title="Secret Passage" />
+
+<room x="-8" y="1" title="Maps and Legends" />
+
+<room x="-8" y="4" title="Rock Transept" />
+
+<room x="-8" y="5" title="Avalon Calling" />
+
+<room x="-7" y="1" title="Yggdrasil" />
+
+<room x="-7" y="2" title="Covert Operators" />
+
+<room x="-7" y="4" title="Aqueous Humor" />
+
+<room x="-7" y="6" title="Be Seeing You" />
+
+<room x="-6" y="1" title="The Grand Vault" />
+
+<room x="-6" y="2" title="The Quarry Hub" />
+
+<room x="-6" y="5" title="It's More Scared of You">
+	<entity template="spider" x="216" y="40" dx="0" dy="1" />
+</room>
+
+<room x="-6" y="6" title="Hidden Crevasse" />
+
+<room x="-5" y="1" title="Artisan Stone Walls" />
+
+<room x="-5" y="2" title="Cave In" />
+
+<room x="-5" y="4" title="A Dream of a Memory" />
+
+<room x="-5" y="5" title="Mine Shaft" />
+
+<room x="-4" y="-2" title="A Brief Respite" />
+
+<room x="-4" y="0" title="Arcane Vocabulary" />
+
+<room x="-4" y="1" title="Venn's Banality" />
+
+<room x="-4" y="2" title="Crawlspace" />
+
+<room x="-4" y="4" title="A Memory of a Dream" />
+
+<room x="-3" y="-1" title="Exit Strategy" />
+
+<room x="-3" y="1" title="Hops and Skips" />
+
+<room x="-2" y="-3" title="Linchpin">
+	<entity template="jelly" x="288" y="120" dx="0" dy="-1" />
+</room>
+
+<room x="-2" y="-1" title="Playing with Fire" />
+
+<room x="-2" y="1" title="Leaps and Bounds" />
+
+<room x="-1" y="-1" title="From Another World" />
+
+<room x="-1" y="1" title="Swimming Upstream">
+	<entity template="plasm_spawner" rate="0.85" x="56" y="84" dx="1" dy="-0.2" stagger="0.0" bounces="6" />
+</room>
+
+<room x="-1" y="3" title="Contrived Lock/Key Mechanisms" />
+
+<room x="0" y="-1" title="Harbinger" />
+
+<room x="1" y="-1" title="Taking the Long Way" />
+
+<room x="1" y="1" title="Not All Those Who Wander Are Lost" />
+
+<room x="1" y="2" title="Cognitive Resonance" />
+
+<room x="1" y="3" title="Functional Spelæology" />
+
+<room x="2" y="2" title="Precarious Footholds" />
+
+<room x="2" y="3" title="Fungal Forest" />
+
+<room x="3" y="0" title="On the Count of Three" />
+
+<room x="3" y="1" title="Mushroom Staircase" />
+
+<room x="3" y="2" title="Transplants" />
+
+<room x="3" y="3" title="The Proper Motivation" />
+
+<room x="4" y="0" title="Does Whatever A Spider Does" />
+
+<room x="4" y="1" title="Eden Maw" />
+
+<room x="4" y="2" title="Under Construction" />
+
+<room x="4" y="3" title="Remnants of a Past Unknown" />
+
+<room x="4" y="4" title="Castle Rock" />
+
+<room x="4" y="5" title="Observation Deck" />
+
+<room x="5" y="0" title="Attic Storeroom" />
+
+<room x="5" y="1" title="Vestibule">
+	<entity template="pusher" x="44" y="64" speed="120" dx="1" dy="0" />
+</room>
+
+<room x="5" y="2" title="Shelter from the Storm" />
+
+<room x="5" y="4" title="Uncertain Semiotics" />
+
+<room x="6" y="0" title="Clarity Comes in Waves" symbolrank="3" />
+
+<room x="6" y="2" title="Cave Painting" symbolrank="1" />
+
+<room x="6" y="3" title="The Loneliest Corner" />
+
+<room x="6" y="5" title="Bring a Mallet" />
+
+<room x="7" y="4" title="Feline Foreshadowing" />
+
+<room x="-1" y="-4" dyntitle="true" dynhints="true">
+	<entity template="gate" x="80" y="32" destwx="-1" destwy="-4" destrx="36" destry="104" dynchar="A" />
+	<entity template="gate" x="128" y="32" destwx="-1" destwy="-4" destrx="36" destry="104" dynchar="B" />
+	<entity template="gate" x="176" y="32" destwx="-1" destwy="-4" destrx="36" destry="104" dynchar="C" />
+	<entity template="gate" x="224" y="32" destwx="-1" destwy="-4" destrx="36" destry="104" dynchar="D" />
+	<entity template="gate" x="272" y="32" destwx="-1" destwy="-4" destrx="36" destry="104" dynchar="E" />
+	
+	<entity template="gate" x="80" y="80" destwx="-1" destwy="-4" destrx="36" destry="104" dynchar="F" />
+	<entity template="gate" x="128" y="80" destwx="-1" destwy="-4" destrx="36" destry="104" dynchar="G" />
+	<entity template="gate" x="176" y="80" destwx="-1" destwy="-4" destrx="36" destry="104" dynchar="H" />
+	<entity template="gate" x="224" y="80" destwx="-1" destwy="-4" destrx="36" destry="104" dynchar="I" />
+	<entity template="gate" x="272" y="80" destwx="-1" destwy="-4" destrx="36" destry="104" dynchar="J" />
+	
+	<entity template="gate" x="80" y="128" destwx="-1" destwy="-4" destrx="36" destry="104" dynchar="K" />
+	<entity template="gate" x="128" y="128" destwx="-1" destwy="-4" destrx="36" destry="104" dynchar="L" />
+	<entity template="gate" x="176" y="128" destwx="-1" destwy="-4" destrx="36" destry="104" dynchar="M" />
+	<entity template="gate" x="224" y="128" destwx="-1" destwy="-4" destrx="36" destry="104" dynchar="N" />
+	<entity template="gate" x="272" y="128" destwx="-1" destwy="-4" destrx="36" destry="104" dynchar="O" />
+</room>
+<room x="0" y="-4" dyntitle="true" dynhints="true">
+	<entity template="gate" x="80" y="32" destwx="0" destwy="-4" destrx="36" destry="104" dynchar="P" />
+	<entity template="gate" x="128" y="32" destwx="0" destwy="-4" destrx="36" destry="104" dynchar="Q" />
+	<entity template="gate" x="176" y="32" destwx="0" destwy="-4" destrx="36" destry="104" dynchar="R" />
+	<entity template="gate" x="224" y="32" destwx="0" destwy="-4" destrx="36" destry="104" dynchar="S" />
+	
+	<entity template="gate" x="80" y="80" destwx="0" destwy="-4" destrx="36" destry="104" dynchar="T" />
+	<entity template="gate" x="128" y="80" destwx="0" destwy="-4" destrx="36" destry="104" dynchar="U" />
+	<entity template="gate" x="176" y="80" destwx="0" destwy="-4" destrx="36" destry="104" dynchar="V" />
+	<entity template="gate" x="224" y="80" destwx="0" destwy="-4" destrx="36" destry="104" dynchar="W" />
+	
+	<entity template="gate" x="80" y="128" destwx="0" destwy="-4" destrx="36" destry="104" dynchar="X" />
+	<entity template="gate" x="128" y="128" destwx="0" destwy="-4" destrx="36" destry="104" dynchar="Y" />
+	<entity template="gate" x="176" y="128" destwx="0" destwy="-4" destrx="36" destry="104" dynchar="Z" />
+	
+	<entity template="gate" x="272" y="128" destwx="0" destwy="-4" destrx="36" destry="104" dynchar=" " />
+</room>
+<room x="1" y="-4" dyntitle="true">
+	<entity template="gate" x="160" y="80" dyndest="true" />
+</room>
+
+<room x="3" y="-4" title="Spiral Out" secret="true">
+</room>
+
+<room x="3" y="-3" title="Keep Going" secret="true">
+</room>
+
+<room x="4" y="-3" title="Are You Watching Closely?" secret="true">
+	<remap dx="0" dy="1" x="4" y="-3" />
+</room>
+
+<room x="4" y="-4" title="Know Our Names" secret="true">
+	<remap dx="1" dy="0" x="5" y="-3" />
+	<remap dx="-1" dy="0" x="4" y="-5" />
+</room>
+
+<room x="4" y="-5" title="The Books Will Not" secret="true" onpause="sigil_egg">
+	<remap dx="1" dy="0" x="4" y="-4" />
+</room>
+
+<room x="5" y="-3" title="The Solo From Oaks" secret="true">
+	<remap dx="-1" dy="0" x="5" y="-3" />
+	<entity template="plasm_spawner" rate="0.5" x="252" y="60" stagger="0.0" dx="-1" dy="0.0" bounces="2" speed="132" />
+</room>
+
+<room x="5" y="-2" title="No Fun Without the Danger" secret="true">
+	<remap dx="0" dy="-1" x="5" y="-2" />
+	<remap dx="0" dy="1" x="6" y="-3" />
+</room>
+
+<room x="6" y="-3" title="Loaded Dice" secret="true">
+	<remap dx="0" dy="-1" x="5" y="-2" />
+</room>
+
+<room x="7" y="-3" title="Re: Volver" secret="true">
+</room>
+
+<room x="8" y="-3" title="Melancholy" secret="true">
+	<remap dx="-1" dy="0" x="8" y="-3" />
+	<remap dx="1" dy="0" x="8" y="-3" />
+</room>
+
+<room x="8" y="-2" title="Sadness" secret="true" onpause="sigil_end">
+	<remap dx="0" dy="1" x="8" y="-2" />
+	<remap dx="0" dy="-1" x="8" y="-2" />
+</room>
