@@ -181,8 +181,12 @@ How do we fix this?
  * ![Room 2](pics/room2.png)
 
  Let's see if we can find out where the tiles for "TOUCH" are located in the map file.
+
+ Referring back to our texture atlas ...
+
+* ![Touch tiles](pics/touch_tiles.png)
  
- Referring back to our texture atlas this means we should have 3 consequitive tiles:
+ ... this means we should have 3 consecutive tiles:
  
  * 0x0210, 0x0211, 0x0212, or
  * 0x1002, 0x1102, 0x1202.
