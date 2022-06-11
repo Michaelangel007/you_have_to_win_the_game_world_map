@@ -250,7 +250,7 @@ Yes! Progress.
 
 However looking at the rooms ... 
 
-* ![Single Column import](pics/import_1f_better.png)
+* ![Single Column import](pics/import_2f_better.png)
 
 .. there are 2 problems:
 
