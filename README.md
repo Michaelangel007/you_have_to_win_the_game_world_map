@@ -324,6 +324,43 @@ This also means that our original assumption that the map header being 30 bytes 
 
 * ![Colorized hexdump of the map header](pics/colorized_hexdump_header22.png)
 
+Let's take a stab at decoding this header. It looks like we have signed 32-bit integer data here as well?
+
+```
+00000000: 01 02        0x201
+00000002: FD FF FF FF  -3
+00000006: 00 00 00 00   0
+0000000A: FB FF FF FF  -5
+0000000E: FE FF FF FF  -2
+00000012: 95 00 00 00  149
+```
+
+Looking at our world grid we see that room -3,0 ("You Have to Start the Game") is where the player starts in.
+
+The next two coordinates -5,-2 ("Before the Crash") is unknown.
+
+The next number looks suspiciously like the total number of rooms.
+
+We can then write this C struct for the header:
+
+```
+#pragma pack(push,2)
+    struct MapHeader_t
+    {
+        int16_t nVersion;
+        int32_t nPlayerStartRoomX;
+        int32_t nPlayerStartRoomY;
+        int32_t nUnknown1;
+        int32_t nUnknown2;
+        int32_t nRooms;
+    };
+#pragma pack(pop)
+    static bool MAP_HEADER_IS_22_BYTES[ (sizeof(MapHeader_t) == 22) ];
+```
+The `#pragma pack()` and `#pragma push()` directives force an exact number of bytes, 22, for the header.
+
+The array `MAP_HEADER_IS_22_BYTES` will give a compile time error if the compiler doesn't have the proper `sizeof()` for the header.
+
 8. Room descriptions
 
 Now that we have the image of a single column of rooms we can create our master image.  One minor detail is that a room in the single column image is 320x192 whereas in the 2D grid it is 320x200 because we want to include the room description. (24 tiles tall vs 25 tiles tall)
@@ -450,6 +487,7 @@ With our final single column image ...
 
 Here are some tips for successful reverse engineering
 
+* Play with the software to get a feel for what it does and to come with ideas for how things could be implemented,
 * Don't be married to your assumption of how the data "must" be laid out,
 * Think outside the box,
 * Be persistent,
