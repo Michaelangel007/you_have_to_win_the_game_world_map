@@ -254,6 +254,8 @@ Yes! Progress.
 
 * ![Single Column import](pics/import_2e_worldmap.png)
 
+Success!
+
 However, looking at the rooms ...
 
 * ![Single Column import](pics/import_2f_better.png)
@@ -263,7 +265,7 @@ However, looking at the rooms ...
 * The first few columns look like junk
 * The left edge of the room gets out of "sync".  It slowly drifts.
 
-7. Decoding a room proper
+7\. Decoding a room proper
 
 A common file format is:
 
@@ -365,7 +367,7 @@ The `#pragma pack()` and `#pragma push()` directives force an exact number of by
 
 The array `MAP_HEADER_IS_22_BYTES` will give a compile time error if the compiler doesn't have the proper `sizeof()` for the header.
 
-8. Room descriptions
+8\. Room descriptions
 
 Now that we have the image of a single column of rooms we can create our master image.  One minor detail is that a room in the single column image is 320x192 whereas in the 2D grid it is 320x200 because we want to include the room description. (24 tiles tall vs 25 tiles tall)
 
@@ -468,7 +470,7 @@ Our CGA font has the fixed diamonds, clubs, spades, and `S` of the revised font 
 
 * ![CGA Font Custom](pics/cga_font_custom_4x.png)
 
-9. Secret and Undocumented rooms
+9\. Secret and Undocumented rooms
 
 The single column of rooms makes it easy to spot undocumented rooms:
 
@@ -479,7 +481,7 @@ and a secret warp room:
 * ![Secret Warp Room](pics/secret_warp.png)
 
 
-10. Native 1:1 World Map
+10\. Native 1:1 World Map
 
 With our final single column image ...
 
@@ -487,7 +489,7 @@ With our final single column image ...
 
 ... we can copy individual rooms to our final native 1:1 world map that was shown at the top of the document.
 
-11. Tips for Reverse Engineering
+11\. Tips for Reverse Engineering
 
 Here are some tips for successful reverse engineering whether it be code or data:
 
