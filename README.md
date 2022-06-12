@@ -149,7 +149,7 @@ We'll save our image of a single column of rooms in a raw 32-bit format with dim
    192 px/room * 149 px = 28608 px total height.
 ```
 
-We can import our 320x28608 image into GIMP:
+We can import our 320x28608 image into GIMP as a raw image if the file name extension is `.data`:
 
 * ![Single Column import](pics/import_1a.png)
 
