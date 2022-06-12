@@ -207,13 +207,17 @@ If you don't have a binary editor that has search capability we can hexdump the 
 0001E530: 00 00 00 00 00 00 00 00  00 00 00 00 12 02 00 00  ................
 ```
 
+Again colorizing for readability:
+
+* ![Colorized hexdump of Touch tiles](pics/colorized_hexdump_touch.png)
+
 What is strange is that 0x1102 and 0x1202 are not consecutive?!
 
 Counting the gap of tiles (remember each tile is 2 bytes each) between them we have: 3*8 = 24 tiles.
 
 Hmm, our room height is 24 tiles.  Does this mean our room data is in column format?
 
-Let's test our premise.
+Let's test our premise:
 
 ```
 void draw_1D_room (const int iRoom, const int nNextRoomY )
