@@ -109,6 +109,7 @@ NOTE: Solution > Properites > Debugging > Working directory should be set to:
 // Types
 
 #pragma pack(push,2)
+	const int MAP_HEADER_SIZE = 22;
 	struct MapHeader_t
 	{
 		int16_t nVersion;
@@ -119,7 +120,7 @@ NOTE: Solution > Properites > Debugging > Working directory should be set to:
 		int32_t nRooms;
 	};
 #pragma pack(pop)
-	static bool MAP_HEADER_IS_22_BYTES[ (sizeof(MapHeader_t) == 22) ];
+	static bool MAP_HEADER_IS_22_BYTES[ (sizeof(MapHeader_t) == MAP_HEADER_SIZE) ];
 
 	struct RoomDesc_t
 	{
@@ -884,7 +885,8 @@ int count_rooms ()
 {
 	int16_t *pMap = get_map_start();
 	int16_t *pSrc = pMap;
-	Room_t  *pRoom  = gRooms;
+
+	Room_t  *pRoom = gRooms;
 	int      iRoom = 0;
 	int      nRoom = 0;
 
@@ -901,12 +903,14 @@ int count_rooms ()
 		return nRoom;
 	}
 	else
-	if (sizeof(gMapHeader) != 22)
+#if 0 // obsolete redundant sanity checking -- see MAP_HEADER_IS_22_BYTES[]
+	if (sizeof(gMapHeader) != MAP_HEADER_SIZE)
 	{
 		printf( "ERROR: Map header not 22 bytes!\n" );
 		return nRoom;
 	}
 	else
+#endif
 	{
 		printf( "Map header:\n" );
 		printf( "  Found Player starting room: %d x %d\n", gMapHeader.nPlayerStartRoomX, gMapHeader.nPlayerStartRoomY );
