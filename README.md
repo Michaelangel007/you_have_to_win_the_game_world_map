@@ -18,14 +18,14 @@ This reverse engineering document will describe how to turn this raw data ...
 
 * ![World Map](pics/WorldMap2D.png)
 
-What makes reverse engineering so challenging but also interesting is that we are pattern matching.  Part of the normal process of reverse engineering is finding out that your assumptions of how the data is laid out is incorrect.   We'll work though the steps of how we identity and fix those assumptions.  While reverse engineering can be a lot of trial-and-error we can be successful through persistance and lateral thinking.
+What makes reverse engineering so challenging, but also interesting, is that we are pattern matching.  Part of the normal process of reverse engineering is finding out that your assumptions of how the data is laid out is incorrect.   We'll work through the steps of how we identify and fix those assumptions.  While reverse engineering can be a lot of trial-and-error we can be successful through persistence and lateral thinking.
 
 
 1\. Raw Assets
 
  The first step is getting images.  We could manually save the image of every room but that is a lot of work for something that can be automated.
  
- Fortunately the game includes a built in console that can be activated with `~` (tilde).  The command to dump all the game files is: `dumpallcontent`
+ Fortunately the game includes a built-in in-game console that can be activated with `~` (tilde).  The command to dump all the game files is: `dumpallcontent`
 
 
  * ![dumpallcontent](pics/dumpallcontent_done.png)
@@ -40,7 +40,7 @@ What makes reverse engineering so challenging but also interesting is that we ar
 
 2\. Texture Atlas
 
- The game has all the art for rooms in a single image called a texture atlast.  The tiles.bmp looks like this:
+ The game has all the art for rooms in a single image called a texture atlas.  The tiles.bmp looks like this:
 
  * ![Tiles sans header](pics/tiles_sans_header.png)
 
@@ -48,7 +48,7 @@ What makes reverse engineering so challenging but also interesting is that we ar
 
  * ![Tiles with header](pics/tiles_with_header.png)
 
- Examing the tiles we see that the texture atlas is 256x256 px with 32x32 tiles.  That means each tile is 8x8 px.  This will help us figure out a room dimension.
+ Examining the tiles we see that the texture atlas is 256x256 px with 32x32 tiles.  That means each tile is 8x8 px.  This will help us figure out a room dimension.
 
 3\. Room dimensions
 
@@ -56,7 +56,7 @@ What makes reverse engineering so challenging but also interesting is that we ar
 
  * ![Room 3 sans grid](pics/room3_sans_grid.png)
  
- Manually counting the columns and rows let's us see that a room is 40x25 tiles. Let's add in grid lines for the room tiles:
+ Manually counting the columns and rows lets us see that a room is 40x25 tiles. Let's add in grid lines for the room tiles:
 
  * ![Room 3 with grid](pics/room3_with_grid.png)
 
@@ -70,7 +70,7 @@ What makes reverse engineering so challenging but also interesting is that we ar
 <room x="-3" y="0" title="You Have to Start the Game">
 ```
 
-If we focus on just the room meta data this is what our file looks like after getting rid of all the extra data, fixing the x and y fields to be padded, and then sorting by x, then y:
+If we focus on just the room metadata this is what our file looks like after getting rid of all the extra data, fixing the x and y fields to be padded, and then sorting by x, then y:
 
 ```
 <room x="-10" y=" 2" title="Slippery Slope" />
@@ -178,7 +178,7 @@ How do we fix this?
 
 6\. Map Export Take 2
 
- In order to identity a room format we want to search for "unique" or "rare" tiles.  If we look at room 2, "Kiss Principle" at (0,-2), we see there are some signs in the room:
+ In order to identify a room format we want to search for "unique" or "rare" tiles.  If we look at room 2, "Kiss Principle" at (0,-2), we see there are some signs in the room:
  
  * ![Room 2](pics/room2.png)
 
@@ -193,7 +193,7 @@ How do we fix this?
  * 0x0210, 0x0211, 0x0212, or
  * 0x1002, 0x1102, 0x1202.
  
-Fortunaly this sequence of bytes is rather uncommon otherwise we may get a lot of false positives when searching.
+Fortunately this sequence of bytes is rather uncommon otherwise we may get a lot of false positives when searching.
 
 If you don't have a binary editor that has search capability we can hexdump the map and then search the text file.  Searching for `02 10` we don't find anything but we DO find `10 02` at offset 0x1E4DC:
 
@@ -207,7 +207,7 @@ If you don't have a binary editor that has search capability we can hexdump the 
 0001E530: 00 00 00 00 00 00 00 00  00 00 00 00 12 02 00 00  ................
 ```
 
-What is strange is that 0x1102 and 0x1202 are not consequitive?!
+What is strange is that 0x1102 and 0x1202 are not consecutive?!
 
 Counting the gap of tiles (remember each tile is 2 bytes each) between them we have: 3*8 = 24 tiles.
 
@@ -250,11 +250,11 @@ Yes! Progress.
 
 * ![Single Column import](pics/import_2e_worldmap.png)
 
-However looking at the rooms ... 
+However, looking at the rooms ...
 
 * ![Single Column import](pics/import_2f_better.png)
 
-.. there are 2 problems:
+... there are 2 problems:
 
 * The first few columns look like junk
 * The left edge of the room gets out of "sync".  It slowly drifts.
@@ -295,13 +295,13 @@ We notice something that looks like signed 32-bit integers?
 * FFFFFFF6 = -10
 * 00000003 = 3
 
-Hmmm, looking back at simplified our `Rooms_Normal.xml` that turned into a world grid ...
+Hmmm, looking back at our simplified `Rooms_Normal.xml` that turned into a world grid ...
 
 ```
         , { -10, 2, "Slippery Slope"                    }
         , { -10, 3, "Nice of You to Drop In"            }
 ```
-... it looks like each map has RoomX, and RoomY cooridinate before the raw room tiles!
+... it looks like each map has RoomX, and RoomY coordinate before the raw room tiles!
 
 This mean the map format is (not to scale):
 
@@ -335,9 +335,9 @@ Let's take a stab at decoding this header. It looks like we have signed 32-bit i
 00000012: 95 00 00 00  149
 ```
 
-Looking at our world grid we see that room -3,0 ("You Have to Start the Game") is where the player starts in.
+Looking at our world grid we see that room -3,0 "You Have to Start the Game" is where the player starts in.
 
-The next two coordinates -5,-2 ("Before the Crash") is unknown.
+The next two coordinates -5,-2 (possible room reference "Before the Crash"?) are unknown.
 
 The next number looks suspiciously like the total number of rooms.
 
@@ -381,9 +381,9 @@ Nerdy Pleasures has a [fantastic article](http://nerdlypleasures.blogspot.com/20
 
 A total of 5 glyphs were changed between the original and revised CGA font.
 
-* Diamond, original had a tail!
-* Clubs, tail was cleaned up
-* Spades, tail was cleaned up
+* Diamonds originally had a tail!
+* Clubs' tail was cleaned up
+* Spades' tail was cleaned up
 * White Sun glyph, top and bottom spokes were flattened
 * Uppercase `S`, had inconsistent weighting
 
@@ -485,11 +485,14 @@ With our final single column image ...
 
 11. Tips for Reverse Engineering
 
-Here are some tips for successful reverse engineering
+Here are some tips for successful reverse engineering whether it be code or data:
 
-* Play with the software to get a feel for what it does and to come with ideas for how things could be implemented,
-* Don't be married to your assumption of how the data "must" be laid out,
-* Think outside the box,
+* "Grok" the software -- Play with the software to get a feel for what it does and to come with ideas for how things _could_ be implemented,
+* Don't be married to your assumption(s) of how the data "must" be laid out,
+* Think outside the box -- try different approaches,
 * Be persistent,
+* Be patient,
 * Take breaks,
-* Keep practicing, the more you do the quicker you notice patterns of data layout.
+* Keep practicing -- the more you do the quicker you notice patterns of data layout.
+
+Good luck!
