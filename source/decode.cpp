@@ -348,7 +348,7 @@ NOTE: Solution > Properites > Debugging > Working directory should be set to:
 	uint8_t  gTilesRawIndex[TILE_Z * NUM_TILE * 3]; // 3 bytes/pixel (RGB)
 	uint32_t gTilesRGBA    [TILE_Z * NUM_TILE    ]; // 4 bytes/pixel (RGBA)
 
-	// CGA Colorss
+	// CGA Colors
 	uint32_t gPalette[16] =
 	{
 		//  aabbggrr
@@ -424,7 +424,7 @@ NOTE: Solution > Properites > Debugging > Working directory should be set to:
 	//     01234567      01234567         01234567      01234567   
 	//     Ver 1         Ver 2            Ver 1         Ver 2      
 	//
-	//   All versions have bad glyphs
+	//   All versions have "ugly" glyphs (inconsisent x-height. Compare with `o`):
 	//     62 b
 	//     64 d
 	//   Tandy fixed the `b` and `d` in their font.
@@ -700,7 +700,7 @@ NOTE: Solution > Properites > Debugging > Working directory should be set to:
 	uint32_t gUnpackedFont8x8RGBA[ CGA_ATLAS_Z * CGA_TILE_Z ]; // linear 1D 256 glyphs 1x8, 32-bpp
 
 	// Tile Histogram
-	uint32_t gHistogram[65536]; // NOTE: Only tiles in texture atlast 0x00{00-1F} - 0x1F{00-1F} are counted.
+	uint32_t gHistogram[65536]; // NOTE: Only tiles in texture atlas 0x00{00-1F} - 0x1F{00-1F} are used.
 
 // Prototypes _________________________________________________________
 
@@ -719,7 +719,7 @@ NOTE: Solution > Properites > Debugging > Working directory should be set to:
 
 		for (int y = 0; y < ATLAS_IMAGE_H; ++y)
 			for (int x = 0; x < ATLAS_IMAGE_W; ++x)
-				*dst++ = gPalette[*src++ & 0xF];
+				*dst++ = gPalette[*src++ & 0xF]; // 16 colors in palette
 	}
 
 	// ========================================
@@ -790,7 +790,7 @@ NOTE: Solution > Properites > Debugging > Working directory should be set to:
 
 // Font _______________________________________________________________
 
-	// Generate gPackedFont8x8RGBA 
+	// Generate gPackedFont8x8RGBA
 	// ========================================
 	void pack_CGA_font ()
 	{
