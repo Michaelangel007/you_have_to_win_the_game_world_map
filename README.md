@@ -334,11 +334,11 @@ Let's take a stab at decoding this header. It looks like we have signed 32-bit i
 
 ```
 00000000: 01 02        0x201
-00000002: FD FF FF FF  -3
-00000006: 00 00 00 00   0
-0000000A: FB FF FF FF  -5
-0000000E: FE FF FF FF  -2
-00000012: 95 00 00 00  149
+00000002: FD FF FF FF     -3
+00000006: 00 00 00 00      0
+0000000A: FB FF FF FF     -5
+0000000E: FE FF FF FF     -2
+00000012: 95 00 00 00    149
 ```
 
 Looking at our world grid we see that room -3,0 "You Have to Start the Game" is where the player starts in.
