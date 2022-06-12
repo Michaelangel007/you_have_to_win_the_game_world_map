@@ -320,7 +320,7 @@ This mean the map format is (not to scale):
 
 This also means that our original assumption that the map header being 30 bytes is actually 8 bytes TOO big since those 8 bytes belong to the map 1 header.
 
-* ![Colorized hexdump of the map header](pics/colorized_hexdumpdump_header22.png)
+* ![Colorized hexdump of the map header](pics/colorized_hexdump_header22.png)
 
 8. Rom descriptions
 
@@ -333,7 +333,7 @@ The game uses the font file `Senior_24.dds` which is an image in a DirectX forma
 * It doesn't have all 256 glyphs.
 * It has a non-standard 15 characters per row instead of the standard 16x16 character grid.
 
-![CGA Font](pics/PC_Senior_24.png)
+* ![CGA Font](pics/PC_Senior_24.png)
 
 Nerdy Pleasures has a [fantastic article](http://nerdlypleasures.blogspot.com/2015/04/ibm-character-fonts.html)  about the IBM PC fonts.  Did you know that there were TWO CGA fonts?!
 
