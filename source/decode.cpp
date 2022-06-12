@@ -17,6 +17,8 @@ NOTE: Solution > Properites > Debugging > Working directory should be set to:
 */
 // Uncomment to create different stages of the world map images
 //#define TUTORIAL 3
+// Uncomment to write: font_cga_rgba32_8x2048.data
+//#define SAVE_CGA_FONT
 
 #define _CRT_SECURE_NO_WARNINGS // MSVC bullshit
 
@@ -451,7 +453,7 @@ NOTE: Solution > Properites > Debugging > Working directory should be set to:
 		,0x3C,0x66,0x66,0x66,0x3C,0x18,0x7E,0x18 // 0C ♀ U+2640 Female Sign                  (Alt 12)
 		,0x3F,0x33,0x3F,0x30,0x30,0x70,0xF0,0xE0 // 0D ♪ U+266A Eigth Note                   (Alt 13)
 		,0x7F,0x63,0x7F,0x63,0x63,0x67,0xE6,0xC0 // 0E ♫ U+266B Sixteen Note                 (Alt 14)
-		,0x18,0xDB,0x3C,0xE7,0xE7,0x3C,0xDB,0x18 // 0F ☼ U+263C White Sun With Rays          (Alt 15)
+		,0x99,0x5A,0x3C,0xE7,0xE7,0x3C,0x5A,0x99 // 0F ☼ U+263C White Sun With Rays          (Alt 15) Revised: 0x18,0xDB,0x3C,0xE7,0xE7,0x3C,0xDB,0x18
 		,0x80,0xE0,0xF8,0xFE,0xF8,0xE0,0x80,0x00 // 10 ► U+25BA Black Right Pointing Pointer (Alt 16)
 		,0x02,0x0E,0x3E,0xFE,0x3E,0x0E,0x02,0x00 // 11 ◄ U+25C4 Black Left Pointint Pointer  (Alt 17)
 		,0x18,0x3C,0x7E,0x18,0x18,0x7E,0x3C,0x18 // 12 ↕ U+2195 Up Down Arrow                (Alt 18)
@@ -852,6 +854,11 @@ NOTE: Solution > Properites > Debugging > Working directory should be set to:
 				}
 			}
 		}
+#ifdef SAVE_CGA_FONT
+	char sFileName[256];
+	sprintf( sFileName, "font_cga_rgba32_%dx%d.data", CGA_TILE_W, CGA_ROW_H );
+	write_file( sFileName, gUnpackedFont8x8RGBA, sizeof(gUnpackedFont8x8RGBA) );
+#endif
 	}
 
 // Main _______________________________________________________________
