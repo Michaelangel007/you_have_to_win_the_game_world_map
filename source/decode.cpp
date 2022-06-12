@@ -56,8 +56,8 @@ NOTE: Solution > Properites > Debugging > Working directory should be set to:
 
 	// We export TWO native 1:1 World maps:
 	//
-    //   1. An image with a single column of rooms: 1x149 , 320x(192*149) = 320 x 28,608 px
-    //   2. An image with a 2D Grid 19x13 rooms with names, 19*320x13*200 = 6,080 x 2600 px
+	//   1. An image with a single column of rooms: 1x149 , 320x(192*149) = 320 x 28,608 px
+	//   2. An image with a 2D Grid 19x13 rooms with names, 19*320x13*200 = 6,080 x 2600 px
 
 	// Rooms: 1C = single column of rooms, room sans room name
 	const int ROOM1C_W    = 40; // in tiles
@@ -790,7 +790,7 @@ NOTE: Solution > Properites > Debugging > Working directory should be set to:
 
 	// Generate gPackedFont8x8RGBA 
 	// ========================================
-	void pack_CGA_font()
+	void pack_CGA_font ()
 	{
 		// The game uses these two font files, CGA style, both which are incomplete:
 		//
@@ -834,7 +834,7 @@ NOTE: Solution > Properites > Debugging > Working directory should be set to:
 
 	// Unpack linear 1-bpp font into linear 32-bpp font
 	// ========================================
-	void unpack_CGA_font()
+	void unpack_CGA_font ()
 	{
 		uint8_t  *pSrc = gPackedFont8x8RGBA  ; // linear
 		uint32_t *pDst = gUnpackedFont8x8RGBA; // linear
@@ -1107,7 +1107,7 @@ void draw_tile (const int16_t iTile, const int iDstTileX, const int iDstTileY)
 }
 
 // ========================================
-void dump_histogram()
+void dump_histogram ()
 {
 	printf( "Histogram Map Tiles (Tile = 0xYYXX)\n" );
 
@@ -1169,7 +1169,7 @@ void write_map1C_rgba32 ()
 }
 
 // ========================================
-void write_map2D_rgba32	()
+void write_map2D_rgba32 ()
 {
 	printf( "Native 1:1 World Map 2D (raw 32-bit RGBA)\n" );
 	printf( "  Image Dimensions: %d x %d px\n", MAP2D_IMAGE_W, MAP2D_IMAGE_H );
