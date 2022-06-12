@@ -324,7 +324,7 @@ This also means that our original assumption that the map header being 30 bytes 
 
 * ![Colorized hexdump of the map header](pics/colorized_hexdump_header22.png)
 
-8. Rom descriptions
+8. Room descriptions
 
 Now that we have the image of a single column of rooms we can create our master image.  One minor detail is that a room in the single column image is 320x192 whereas in the 2D grid it is 320x200 because we want to include the room description. (24 tiles tall vs 25 tiles tall)
 
@@ -427,6 +427,31 @@ Our CGA font has the fixed diamonds, clubs, spades, and `S` of the revised font 
 
 * ![CGA Font Custom](pics/cga_font_custom_4x.png)
 
-9. Native 1:1 World Map
+9. Secret and Undocumented rooms
 
-With this we have a final native 1:1 world map that was shown at the top of the document.
+The single column of rooms makes it easy to spot undocumented rooms:
+
+* ![Undocumented Room](pics/undocumented_blocked_room.png)
+
+and a secret warp room:
+
+* ![Secret Warp Room](pics/secret_warp.png)
+
+
+10. Native 1:1 World Map
+
+With our final single column image ...
+
+* ![Final Single Column Rooms](pics/WorldMap1D.png)
+
+... we can copy individual rooms to our final native 1:1 world map that was shown at the top of the document.
+
+11. Tips for Reverse Engineering
+
+Here are some tips for successful reverse engineering
+
+* Don't be married to your assumption of how the data "must" be laid out,
+* Think outside the box,
+* Be persistent,
+* Take breaks,
+* Keep practicing, the more you do the quicker you notice patterns of data layout.
