@@ -269,7 +269,11 @@ A common file format is:
    +--------+
 ```
 
-If we play around skipping various bytes of the header so that room 1 draws correctly we eventually discover that the map has a header size of 30 bytes.  Unfortunately that doesn't fix the 2nd room:
+If we play around skipping various bytes of the header so that room 1 draws correctly we eventually discover that the map has a header size of 30 bytes.
+
+* ![Colorized hexdump of the map header](pics/colorized_hexdumpdump_header30.png)
+
+Unfortunately that doesn't fix the 2nd room:
 
 * ![Room 2 broken](broken_room2.png)
 
@@ -301,17 +305,124 @@ This mean the map format is (not to scale):
 
 
 ```
-   +----------------------+
-   | map header           |
-   +-------------+--------+
-   | room header | data   | \
-   +-------------+--------+  \
-   | room header | data   |   \
-   +-------------+--------+     N rooms
-   :                      :   /
-   +-------------+--------+  /
-   | room header | data   | /
-   +-------------+--------+
+   +-------------------------------+
+   | map header                    |
+   +---------------+---------------+
+   | room 1 header | room 1 data   | \
+   +---------------+---------------+  \
+   | room 2 header | room 2 data   |   \
+   +---------------+---------------+     N rooms
+   :                               :   /
+   +---------------+---------------+  /
+   | room N header | room N data   | /
+   +---------------+---------------+
 ```
 
-This also means that original assumption that the map header is 30 bytes is 8 bytes TOO big!
+This also means that our original assumption that the map header being 30 bytes is actually 8 bytes TOO big since those 8 bytes belong to the map 1 header.
+
+* ![Colorized hexdump of the map header](pics/colorized_hexdumpdump_header22.png)
+
+8. Rom descriptions
+
+Now that we have the image of a single column of rooms we can create our master image.  One minor detail is that a room in the single column image is 320x192 whereas in the 2D grid it is 320x200 because we want to include the room description. (24 tiles tall vs 25 tiles tall)
+
+We'll use the same CGA 8x8 font that the game uses.
+
+The game uses the font file `Senior_24.dds` which is an image in a DirectX format. It has two minor problems:
+
+* It doesn't have all 256 glyphs.
+* It has a non-standard 15 characters per row instead of the standard 16x16 character grid.
+
+Nerdy Pleasures has a [fantastic article](http://nerdlypleasures.blogspot.com/2015/04/ibm-character-fonts.html)  about the IBM PC fonts.  Did you know that there were TWO CGA fonts?!
+
+* ![Original CGA Font](pics/cga_font_original.png)
+* ![Revised CGA Font](pics/cga_font_revised.png)
+
+A total of 5 glyphs were changed between the original and revised CGA font.
+
+* Diamond
+* Clubs
+* Spades
+* White Sun glyph
+* Uppercase `S`
+
+```
+     Original       Revised
+
+     01234567       01234567  
+    +--------+     +--------+ 
+   0|   X    |0   0|   X    |0
+   1|  XXX   |1   1|  XXX   |1
+   2| XXXXX  |2   2| XXXXX  |2
+   3|XXXXXXX |3   3|XXXXXXX |3
+   4| XXXXX  |4   4| XXXXX  |4
+   5|  XXX   |5   5|  XXX   |5
+   6|   X    |6   6|   X    |6
+   7|    X   |7   7|        |7
+    +--------+     +--------+ 
+     01234567      01234567   
+
+      01234567       01234567  
+     +--------+     +--------+ 
+    0|  XXX   |0   0|  XXX   |0
+    1| XXXXX  |1   1| XXXXX  |1
+    2|  XXX   |2   2|  XXX   |2
+    3|XXXXXXX |3   3|XXXXXXX |3
+    4|XXXXXXX |4   4|XXXXXXX |4
+    5| XXXXX  |5   5| X X X  |5
+    6|  XXX   |6   6|   X    |6
+    7| XXXXX  |7   7|  XXX   |7
+     +--------+     +--------+ 
+      01234567      01234567   
+
+      01234567       01234567  
+     +--------+     +--------+ 
+    0|   X    |0   0|   X    |0
+    1|   X    |1   1|   X    |1
+    2|  XXX   |2   2|  XXX   |2
+    3| XXXXX  |3   3| XXXXX  |3
+    4|XXXXXXX |4   4|XXXXXXX |4
+    5| XXXXX  |5   5| XXXXX  |5
+    6|  XXX   |6   6|   X    |6
+    7| XXXXX  |7   7|  XXX   |7
+     +--------+     +--------+ 
+      01234567      01234567   
+
+      01234567       01234567  
+     +--------+     +--------+ 
+    0|X  XX  X|0   0|   XX   |0
+    1| X XX X |1   1|XX XX XX|1
+    2|  XXXX  |2   2|  XXXX  |2
+    3|XXX  XXX|3   3|XXX  XXX|3
+    4|XXX  XXX|4   4|XXX  XXX|4
+    5|  XXXX  |5   5|  XXXX  |5
+    6| X XX X |6   6| X XX X |6
+    7|X  XX  X|7   7|X  XX  X|7
+     +--------+     +--------+ 
+      01234567      01234567   
+
+     01234567       01234567  
+    +--------+     +--------+ 
+   0| XXXX   |0   0| XXXX   |0
+   1|XX  XX  |1   1|XX  XX  |1
+   2|XXX     |2   2| XX     |2
+   3| XXX    |3   3|  XX    |3
+   4|   XXX  |4   4|   XX   |4
+   5|XX  XX  |5   5|XX  XX  |5
+   6| XXXX   |6   6| XXXX   |6
+   7|        |7   7|        |7
+    +--------+     +--------+ 
+     01234567      01234567   
+```
+
+Here is an animation showing the original and revised font:
+
+* ![CGA Font Comparison](pics/cga_font_compare.gif)
+
+Our CGA font has the fixed clubs, diamonds, spades, and `S` of the revised font but the white sun glyph of the original:
+
+* ![CGA Font Custom](pics/cga_font_custom.png)
+
+9. Native 1:1 World Map
+
+With this we have a final native 1:1 world map that was shown at the top of the document.
