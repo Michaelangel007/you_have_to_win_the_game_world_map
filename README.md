@@ -376,7 +376,7 @@ We'll use the same CGA 8x8 font that the game uses.
 The game uses the font file `Senior_24.dds` which is an image in a DirectX format. It has two minor problems:
 
 * It doesn't have all 256 glyphs.
-* It has a non-standard 15 characters per row instead of the standard 16x16 character grid.
+* It has a non-standard 15 characters per row instead of the standard 16x16 character grid. (Probably due to the 1 pixel border around each character thus only 15 characters fit.)
 
 * ![CGA Font](pics/PC_Senior_24.png)
 
