@@ -271,11 +271,11 @@ A common file format is:
 
 If we play around skipping various bytes of the header so that room 1 draws correctly we eventually discover that the map has a header size of 30 bytes.
 
-* ![Colorized hexdump of the map header](pics/colorized_hexdumpdump_header30.png)
+* ![Colorized hexdump of the map header](pics/colorized_hexdump_header30.png)
 
 Unfortunately that doesn't fix the 2nd room:
 
-* ![Room 2 broken](broken_room2.png)
+* ![Room 2 broken](pics/broken_room2.png)
 
 It looks like each room has meta-data?  Looking at the raw hexdump between the 1st and 2nd room we see this:
 
@@ -333,6 +333,8 @@ The game uses the font file `Senior_24.dds` which is an image in a DirectX forma
 * It doesn't have all 256 glyphs.
 * It has a non-standard 15 characters per row instead of the standard 16x16 character grid.
 
+![CGA Font](pics/PC_Senior_24.png)
+
 Nerdy Pleasures has a [fantastic article](http://nerdlypleasures.blogspot.com/2015/04/ibm-character-fonts.html)  about the IBM PC fonts.  Did you know that there were TWO CGA fonts?!
 
 * ![Original CGA Font](pics/cga_font_original.png)
@@ -340,11 +342,11 @@ Nerdy Pleasures has a [fantastic article](http://nerdlypleasures.blogspot.com/20
 
 A total of 5 glyphs were changed between the original and revised CGA font.
 
-* Diamond
-* Clubs
-* Spades
-* White Sun glyph
-* Uppercase `S`
+* Diamond, original had a tail!
+* Clubs, tail was cleaned up
+* Spades, tail was cleaned up
+* White Sun glyph, top and bottom spokes were flattened
+* Uppercase `S`, had inconsistent weighting
 
 ```
      Original       Revised
@@ -421,7 +423,7 @@ Here is an animation showing the original and revised font:
 
 Our CGA font has the fixed clubs, diamonds, spades, and `S` of the revised font but the white sun glyph of the original:
 
-* ![CGA Font Custom](pics/cga_font_custom.png)
+* ![CGA Font Custom](pics/cga_font_custom_4x.png)
 
 9. Native 1:1 World Map
 
