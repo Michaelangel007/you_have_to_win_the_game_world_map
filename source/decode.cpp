@@ -1181,13 +1181,13 @@ void write_map2D_rgba32 ()
 	write_file( sFileName, gWorldMap2D, MAP2D_SIZE );
 }
 
-void write_map2D_bitmap()
+void write_map2D_bitmap ()
 {
 	const int BMP_HEADER_SIZE = 54;
 
-	uint32_t aHeader[13]; // Windows .BMP header, "BM" + 12*int32 = 54 bytes
-	int     nPlanes   = 1;
-	int     nBitcount = 32 << 16; // nBitCount and nPlanes are 16-bit in the header but we pack them together
+	uint32_t aHeader[13]; // Windows .BMP header, "BM" + 13*int32 = 54 bytes
+	int      nPlanes   = 1;
+	int      nBitcount = 32 << 16; // nBitCount and nPlanes are 16-bit in the header but we pack them together
 
 	// Header: Note that the "BM" identifier in bytes 0 and 1 is NOT included in this header but IS written to the file
 	aHeader[ 0] = BMP_HEADER_SIZE + MAP2D_SIZE; // bfSize (total file size)
@@ -1204,14 +1204,14 @@ void write_map2D_bitmap()
 	aHeader[11] = 0;                            // biClrUsed
 	aHeader[12] = 0;                            // biClrImportant
 
-	uint32_t nFileSize = 54 + MAP2D_SIZE;
+	uint32_t nFileSize = BMP_HEADER_SIZE + MAP2D_SIZE;
 	uint8_t *pBuffer   = new uint8_t [ nFileSize ];
 
 	pBuffer[0] = 'B';
 	pBuffer[1] = 'M';
-	memcpy( pBuffer+2              , &aHeader[0], BMP_HEADER_SIZE-2 );
+	memcpy( pBuffer+2, &aHeader[0], BMP_HEADER_SIZE-2 );
 
-	// Stupid Windows .BMP are upside down, copy scanline by scanline
+	// Stupid Windows .BMP are upside down so copy scanline by scanline
 	// Otherwise we could simply just write the entire map in one go
 	//     memcpy( pBuffer+BMP_HEADER_SIZE, gWorldMap2D, MAP2D_SIZE        );
 
