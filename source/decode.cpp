@@ -1,6 +1,7 @@
 ﻿/*
     Generate native 1:1 world map for "You Have To Win The Game"
-    Copyleft (C) 2022 Michaelangel007
+    Copyleft (C) 2022 Michaelangel007 / mysticreddit
+    Leave comments in: https://www.reddit.com/r/ReverseEngineering/comments/vacuko/my_tutorial_for_reverse_engineering_the_map/
 
     Reads:
         yhtwtg.map
