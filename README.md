@@ -502,3 +502,5 @@ Here are some tips for successful reverse engineering whether it be code or data
 * Keep practicing -- the more you do the quicker you notice patterns of data layout.
 
 Good luck!
+
+Last updated: Sun, Jun 12, 2022.
