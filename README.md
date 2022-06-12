@@ -2,7 +2,7 @@
 
 Did you know that all the [online](http://www.thealmightyguru.com/Wiki/images/8/80/You_Have_to_Win_the_Game_-_Map.png
 ) [maps](https://pryp.in/yhtwtg/map.html
-) for _You Have To Win The Game_ are incomplete? That is, they are missing rooms or show rooms in the wrong location! Nothing earth shattering but does that pique your curiosity? :-)
+) for the platformer game _You Have To Win The Game_ are incomplete? That is, they are missing rooms or show rooms in the wrong location! Nothing earth shattering but does that pique your curiosity? :-)
 
 This reverse engineering document will describe how to turn this raw data ...
 
@@ -502,5 +502,7 @@ Here are some tips for successful reverse engineering whether it be code or data
 * Keep practicing -- the more you do the quicker you notice patterns of data layout.
 
 Good luck!
+
+You can find _You Have To Win The Game_ on [Steam]([You Have To Win The Game](https://store.steampowered.com/app/286100/You_Have_to_Win_the_Game/).
 
 Last updated: Sun, Jun 12, 2022.
