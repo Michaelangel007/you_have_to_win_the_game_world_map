@@ -259,3 +259,59 @@ However looking at the rooms ...
 
 7. Decoding a room proper
 
+A common file format is:
+
+```
+   +--------+
+   | header |
+   +--------+
+   | data   |
+   +--------+
+```
+
+If we play around skipping various bytes of the header so that room 1 draws correctly we eventually discover that the map has a header size of 30 bytes.  Unfortunately that doesn't fix the 2nd room:
+
+* ![Room 2 broken](broken_room2.png)
+
+It looks like each room has meta-data?  Looking at the raw hexdump between the 1st and 2nd room we see this:
+
+```
+00000790: 0F 05 0C 05 0D 05 0C 05  0C 05 0E 05 0C 05 F6 FF  ................
+000007A0: FF FF 03 00 00 00 0D 05  0D 05 0F 05 0D 05 0C 05  ................
+```
+
+Let's colorize this hex dump for readability (room 1 is red, room 2 is green)
+
+* ![Colorized hexdump room1and2](pics/colorized_hexdump_room1and2.png)
+
+We notice something that looks like signed 32-bit integers?
+
+* FFFFFFF6 = -10
+* 00000003 = 3
+
+Hmmm, looking back at simplified our `Rooms_Normal.xml` that turned into a world grid ...
+
+```
+        , { -10, 2, "Slippery Slope"                    }
+        , { -10, 3, "Nice of You to Drop In"            }
+```
+... it looks like each map has RoomX, and RoomY cooridinate before the raw room tiles!
+
+This mean the map format is (not to scale):
+
+
+```
+   +----------------------+
+   | map header           |
+   +-------------+--------+
+   | room header | data   | \
+   +-------------+--------+  \
+   | room header | data   |   \
+   +-------------+--------+     N rooms
+   :                      :   /
+   +-------------+--------+  /
+   | room header | data   | /
+   +-------------+--------+
+```
+
+This also means that original assumption that the map header is 30 bytes is 8 bytes TOO big!
