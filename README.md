@@ -503,6 +503,6 @@ Here are some tips for successful reverse engineering whether it be code or data
 
 Good luck!
 
-You can find _You Have To Win The Game_ on [Steam]([You Have To Win The Game](https://store.steampowered.com/app/286100/You_Have_to_Win_the_Game/).
+You can find _You Have To Win The Game_ on [Steam](https://store.steampowered.com/app/286100/You_Have_to_Win_the_Game/).
 
-Last updated: Sun, Jun 12, 2022.
+Last updated: Mon, Jun 13, 2022.
